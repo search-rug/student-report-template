@@ -1,0 +1,175 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+This chapter provide the main tips and guidelines for writing theses and reports using \LaTeX.
+
+\section{Theses Structure}
+\label{sec:c1:thesesguidelines}
+
+You should shop around and look at theses or ask your supervisor for suggestions.
+That said, here is an example of how you can structure your thesis.
+
+\begin{enumerate}
+    \item Introduction
+    \item Background / Related Work
+    \item Study Design / Methodology
+    \begin{enumerate}
+        \item Objective and Research Questions
+        \item Data Collection
+        \item Data Analysis
+    \end{enumerate}
+    \item Results
+    \item Discussion
+    \begin{enumerate}
+        \item Interpretation of Results
+        \item Implications to Practitioners and Researchers
+        \item Threats to Validity
+    \end{enumerate}
+    \item Conclusions
+\end{enumerate}
+
+A \textbf{research internship} comprise a work similar to a thesis but at a smaller scale. Thus, the structure is usually very similar. Key differences are commonly related to the amount of workload. Thus, consider the same structure suggested for thesis.
+
+\section{Short Programming Project Structure}
+\label{sec:c1:sppguidelines}
+
+{\color{red} To be written...}.
+
+
+\section{\LaTeX{} Formatting}
+\label{sec:c1:latex}
+
+There are some great resources to help with \LaTeX,
+so this guide will not include general instructions.
+For those, consult the Latex Wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX}}
+and the excellent guidelines by Spinellis~\cite{spinellis:latexadvice}.
+
+That said, there are some small pointers that are particular to this template.
+These are mentioned in the subsection below.
+
+\subsection{References}
+\label{sec:c1:References}
+
+\noindent
+\textbf{Indirect citation}
+
+These look like ``\verb|... in related work~\cite{source}|'' and generate something like ``\dots in related work~[2].''
+Do not forget the ``\verb|~|'' before ``\verb|\cite|'' to not let the next line start with ``\verb|[2]|''.
+
+\vspace{0.5cm}
+\noindent
+\textbf{Direct citation}
+
+These look like ``\texttt{according to Author et} \verb|al.~\cite{source}|'' and generate something like ``according to Author et al. [2].''
+Only add ``et al.'' if the reference by three or more people.
+
+\subsection{Tables}
+\label{sec:c1:latex_tables}
+
+Avoid cumbersome table formatting (e.g. using vertical lines).
+In general, simpler is better.
+\autoref{tab:c1:simpleexample} and \autoref{tab:c1:multicolexample} are some examples.
+Also, look at the tables' source for code formatting tips.
+
+\begin{table} [h]
+    \caption{Example of a simple table (based on~\cite{spinellis:latexadvice})}
+    \label{tab:c1:simpleexample}
+    
+    \noindent
+    \centering
+    \footnotesize%if needed
+
+    % put the header on a \parbox to center and break lines
+    \newcommand{\hb}[2]{\parbox[c][0.8cm][c]{#1}{\centering #2}}
+    
+    \begin{tabular}{lccccc}
+        \toprule
+        % Column labels (using separate lines to align label with data)
+        \hb{2cm}{Command\\and options}
+                & \hb{2cm}{Input\\requirements}
+                        & Matched
+                                & Connected
+                                        & Matched
+                                                & Connected \\
+        \midrule
+        tr -cs  & 1     & \X    & --    & \V    & 1 \\
+        sort w  & 0     &       & --    & \X    & 0 \\
+        fmt     & 1     & \X    & --    & \V    & 1 \\
+        tr A-Z  & 1     & \V    & 1     &       & 1 \\
+        sort -u & fmt   & \X    & --    & \V    & 1 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table} [h]
+    \caption{Example of multi-column table}
+    \label{tab:c1:multicolexample}
+    
+    \noindent
+    \centering
+    
+    \begin{tabular}{lSSSS}
+        \toprule
+        {}                & \multicolumn{2}{c}{\textbf{Group 1}} 
+                                                    & \multicolumn{2}{c}{\textbf{Group 2}} \\
+                            \cmidrule(r){2-3}         \cmidrule(r){4-5}
+        {}                & {Average}  & {Max}      & {Average}   & {Max} \\
+        \midrule
+        \textbf{Factor 1} &   853      &  2443      &   1760      &   3799      \\
+        \textbf{Factor 2} & 14983      & 74658      & 110881      & 316552      \\
+        \textbf{Factor 3} &    18      &    85      &     89      &    319      \\
+        \textbf{Rate}     &    51.91\% &    86.34\% &     44.44\% &     81.08\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Figures}
+\label{sec:c1:latex_figures}
+
+The main tips in a nutshell are as follows.
+\begin{itemize}
+    \item Put all your figures inside the \texttt{figs} folder,
+          and use subfolders to organize them per chapter.
+    \item Prefer vectorized images (e.g. PS or PDF).
+          Bear in mind that saving a PNG or JPG as PDF
+          will not vectorize your image.
+\end{itemize}
+
+See \autoref{fig:c1:simpleexample} for a simple example.
+\autoref{fig:c1:allauthors} shows an example using sub-figures.
+Notice that you can also cite them individually
+(see \autoref{fig:c1:auth1}, \autoref{fig:c1:auth2} and \autoref{fig:c1:auth3}).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.2\textwidth]{figs/author}
+    \caption{A figure example}
+    \label{fig:c1:simpleexample}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/author}
+        \caption{Author 1}
+        \label{fig:c1:auth1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/author}
+        \caption{Author 2}
+        \label{fig:c1:auth2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/author}
+        \caption{Author 3}
+        \label{fig:c1:auth3}
+    \end{subfigure}
+       \caption{All authors}
+       \label{fig:c1:allauthors}
+\end{figure}

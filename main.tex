@@ -1,0 +1,110 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+% Page and header styling
+\usepackage[top=30mm, bottom=25mm, left=30mm, right=38mm]{geometry}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{etoolbox} % for patching commands
+
+% Font encoding and input encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Fonts & Symbols
+\usepackage{palatino}
+\usepackage{mathpazo}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbding}
+
+\usepackage[skip=10pt plus1pt]{parskip} % paragraph formatting
+\usepackage[colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan]{hyperref} % link formatting
+\usepackage[table,dvipsnames,svgnames,x11names]{xcolor} % more color option
+
+\usepackage{booktabs}% table environment
+\usepackage{multirow}% multi-row in tables
+\usepackage{multicol}% multi-column in tables
+\usepackage{longtable}% multi-page tables
+\usepackage{graphicx} % images
+\usepackage{subcaption}
+% Honor the surrounding font in some version of `siunitx`.
+\usepackage[detect-all]{siunitx}
+% Format units using the US spelling that is used as a de facto standard.
+\sisetup{group-separator={,},group-minimum-digits={3},output-decimal-marker={.}}
+
+
+% For bibliography management
+\usepackage[backend=bibtex, style=numeric]{biblatex}
+\addbibresource{references.bib}
+
+% Redefine marks to remove uppercase
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter \, |\,}{2pc}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\thesection}{1pc}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection}{1pc}{}
+
+% Avoid uppercase in TOC
+\renewcommand{\cftchapfont}{\normalfont\bfseries}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+
+% Custom header formatting
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\nouppercase{\leftmark}}
+\fancyhead[RE,LO]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+
+% Patch \chaptermark and \sectionmark to avoid uppercase
+\makeatletter
+\patchcmd{\chaptermark}{\MakeUppercase}{}{}{}
+\patchcmd{\sectionmark}{\MakeUppercase}{}{}{}
+\makeatother
+
+% User-defined commands
+\newcommand{\X}{\XSolidBrush{}}
+\newcommand{\V}{\Checkmark{}}
+
+%%
+%% CONTENT
+%%
+
+\begin{document}
+
+% Add your title, used in parts of the document
+% This is used for both types of document (thesis, report)
+\newcommand{\theprojecttitle}{The Title}
+
+% Cover page (choose one, comment out the other)
+\include{cover-thesis} % MSc or BSc thesis 
+\include{cover-report} % internship, SPP, etc.
+
+% Abstract (for theses only)
+\newpage
+\begin{abstract}
+    Your abstract goes here.
+\end{abstract}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% List of Figures
+\listoffigures
+\newpage
+
+% List of Tables
+\listoftables
+\newpage
+
+% Chapters
+\include{content}
+
+% Bibliography
+\printbibliography
+
+% Appendices (comment out if not needed)
+\appendix
+\include{appendices}
+
+\end{document}
