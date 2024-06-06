@@ -24,6 +24,8 @@ and explore the template. Part of the time-consuming tasks (e.g. layout)
 are solved already. Adding your content should be fairly straightforward
 (maybe tables less so).
 
+You might, or might not, be interested in taking a look at the [this style guide](https://vandriko.github.io/writing-style-guide/) as a way of avoiding common mistakes.
+
 ## After Submitting your Thesis or Report
 
 Provide any feedback related to these guidelines and the template by:
