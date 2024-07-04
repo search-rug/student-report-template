@@ -1,6 +1,6 @@
 # Writing BSc/MSc Theses and Reports
 
-This repository contains a LaTeX template for writing BSc/MSc theses and reports in general (e.g., for an internships or short programming project). The template also contain limited guidance to help some aspects of the writing.
+This repository contains a LaTeX template for writing BSc/MSc theses and reports in general (e.g., for an internship or short programming project). The template also contains limited guidance to help with some aspects of the writing.
 
 This template is maintained by, and therefore applies to, the [Software Engineering and Architecture group](https://www.cs.rug.nl/search/) of the [Faculty of Science and Engineering](https://www.rug.nl/fse/?lang=en) of the University of Groningen. That being said, it may be applicable to other groups or purposes, in which case you are using the template and guidance at your own risk.
 
@@ -24,7 +24,7 @@ and explore the template. Part of the time-consuming tasks (e.g. layout)
 are solved already. Adding your content should be fairly straightforward
 (maybe tables less so).
 
-You might, or might not, be interested in taking a look at the [this style guide](https://vandriko.github.io/writing-style-guide/) as a way of avoiding common mistakes.
+You might, or might not, be interested in taking a look at [this style guide](https://vandriko.github.io/writing-style-guide/) as a way of avoiding common mistakes.
 
 ## After Submitting your Thesis or Report
 
