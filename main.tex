@@ -48,6 +48,19 @@
 \renewcommand{\cftsecfont}{\normalfont}
 \renewcommand{\cftsubsecfont}{\normalfont}
 
+% Add capitalisation to autoref names to follow writing style guide
+\usepackage[english]{babel}
+\addto\extrasenglish{
+  \def\chapterautorefname{Chapter}
+  \def\sectionautorefname{Section}
+  \def\subsectionautorefname{Section}
+  \def\subsubsectionautorefname{Section}
+  \def\itemautorefname{Item}
+  \def\paragraphautorefname{Paragraph}
+  \def\footnoteautorefname{Footnote}
+  \def\pageautorefname{Page}
+}
+
 % Custom header formatting
 \pagestyle{fancy}
 \fancyhf{}
