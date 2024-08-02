@@ -149,27 +149,15 @@ Notice that you can also cite them individually
 \end{figure}
 
 \begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.2\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs/author}
-        \caption{Author 1}
-        \label{fig:c1:auth1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.2\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs/author}
-        \caption{Author 2}
-        \label{fig:c1:auth2}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.2\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs/author}
-        \caption{Author 3}
-        \label{fig:c1:auth3}
-    \end{subfigure}
-       \caption{All authors}
-       \label{fig:c1:allauthors}
+\centering
+\subcaptionbox{Author 1\label{fig:c1:auth1}}[0.2\textwidth]{%
+    \includegraphics[width=0.2\textwidth]{figs/author}}%
+\hspace{0.1\textwidth} % seperation
+\subcaptionbox{Author 2\label{fig:c1:auth2}}[0.2\textwidth]{%
+    \includegraphics[width=0.2\textwidth]{figs/author}}%
+\hspace{0.1\textwidth} % seperation
+\subcaptionbox{Author 3\label{fig:c1:auth3}}[0.2\textwidth]{%
+    \includegraphics[width=0.2\textwidth]{figs/author}}%
+\caption{All authors}
+\label{fig:c1:allauthors}
 \end{figure}

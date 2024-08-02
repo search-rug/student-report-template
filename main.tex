@@ -1,55 +1,18 @@
-\documentclass[12pt,a4paper,oneside]{report}
+\documentclass[11pt,a4paper,oneside]{report}
 
-% Page and header styling
 \usepackage[top=30mm, bottom=25mm, left=30mm, right=38mm]{geometry}
-\usepackage{titlesec}
-\usepackage{tocloft}
-\usepackage{fancyhdr}
-\usepackage{etoolbox} % for patching commands
 
-% Font encoding and input encoding
-\usepackage[T1]{fontenc}
+% Text and fonts
 \usepackage[utf8]{inputenc}
-
-% Fonts & Symbols
-\usepackage{palatino}
-\usepackage{mathpazo}
-\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage{parskip}
 \usepackage{amssymb}
-\usepackage{bbding}
-
-\usepackage[skip=10pt plus1pt]{parskip} % paragraph formatting
-\usepackage[colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan]{hyperref} % link formatting
-\usepackage[table,dvipsnames,svgnames,x11names]{xcolor} % more color option
-
-\usepackage{booktabs}% table environment
-\usepackage{multirow}% multi-row in tables
-\usepackage{multicol}% multi-column in tables
-\usepackage{longtable}% multi-page tables
-\usepackage{graphicx} % images
-\usepackage{subcaption}
-% Honor the surrounding font in some version of `siunitx`.
-\usepackage[detect-all]{siunitx}
-% Format units using the US spelling that is used as a de facto standard.
-\sisetup{group-separator={,},group-minimum-digits={3},output-decimal-marker={.}}
-
-
-% For bibliography management
-\usepackage[backend=bibtex, style=numeric]{biblatex}
-\addbibresource{references.bib}
-
-% Redefine marks to remove uppercase
-\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter \, |\,}{2pc}{}
-\titleformat{\section}[hang]{\Large\bfseries}{\thesection}{1pc}{}
-\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection}{1pc}{}
-
-% Avoid uppercase in TOC
-\renewcommand{\cftchapfont}{\normalfont\bfseries}
-\renewcommand{\cftsecfont}{\normalfont}
-\renewcommand{\cftsubsecfont}{\normalfont}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{marvosym}
+\usepackage{palatino}
 
 % Add capitalisation to autoref names to follow writing style guide
-\usepackage[english]{babel}
 \addto\extrasenglish{
   \def\chapterautorefname{Chapter}
   \def\sectionautorefname{Section}
@@ -61,12 +24,73 @@
   \def\pageautorefname{Page}
 }
 
+% Figures & Tables
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{tablefootnote}
+
+% Refs and links
+\usepackage{xurl}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    citecolor=red,
+    urlcolor=RoyalPurple
+}
+
+% Misc
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{minted}
+\usepackage{csquotes}
+\usepackage{titlesec}
+\usepackage[detect-all]{siunitx}
+\usepackage{changepage}
+
+\usepackage{todonotes}
+
+\setlength{\marginparwidth}{2cm}
+
+% Set up page headers and footers
+\setlength{\headheight}{14.5pt}
+
+\fancypagestyle{contents}{
+    \fancyhead[L]{\nouppercase{\leftmark}}
+    \fancyhead[R]{}
+}
+
+\fancypagestyle{body}{
+    \fancyhead[L]{\nouppercase{\leftmark}}
+    \fancyhead[R]{\nouppercase{\rightmark}}
+}
+
+\fancypagestyle{appendix}{
+    \fancyhead[L]{\nouppercase{\leftmark}}
+    \fancyhead[R]{}
+}
 % Custom header formatting
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE,RO]{\nouppercase{\leftmark}}
-\fancyhead[RE,LO]{\nouppercase{\rightmark}}
-\fancyfoot[C]{\thepage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[LE,RO]{\nouppercase{\leftmark}}
+% \fancyhead[RE,LO]{\nouppercase{\rightmark}}
+% \fancyfoot[C]{\thepage}
+
+% Redefine marks to remove uppercase
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter \, |\,}{2pc}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\thesection}{1pc}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection}{1pc}{}
 
 % Patch \chaptermark and \sectionmark to avoid uppercase
 \makeatletter
@@ -74,9 +98,28 @@
 \patchcmd{\sectionmark}{\MakeUppercase}{}{}{}
 \makeatother
 
+\counterwithin{listing}{chapter}
+
+\definecolor{codebg}{gray}{0.95}
+\setminted{%
+    breaklines,
+    bgcolor=codebg,
+    fontsize=\scriptsize
+}
+
+\sisetup{group-separator={,},group-minimum-digits={3},output-decimal-marker={.}}
+
+\hyphenation{analysis}
+
+\newenvironment{compactitemize}
+    {\vspace{-\topsep}\begin{itemize}[leftmargin=*,topsep=0pt,noitemsep]}
+    {\end{itemize}\vspace{-\topsep}}
+
+\interfootnotelinepenalty=10000
+
 % User-defined commands
-\newcommand{\X}{\XSolidBrush{}}
-\newcommand{\V}{\Checkmark{}}
+\newcommand{\X}{X}
+\newcommand{\V}{V}
 
 %%
 %% CONTENT
@@ -114,7 +157,7 @@
 \include{content}
 
 % Bibliography
-\printbibliography
+\printbibliography[heading=bibintoc,title={References}]
 
 % Appendices (comment out if not needed)
 \appendix
