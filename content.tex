@@ -3,7 +3,21 @@
 
 This chapter provides the main tips and guidelines for writing theses and reports using \LaTeX.
 
-\section{Theses Structure}
+\section{What Makes a Good Report}
+\label{sec:c1:goodreport}
+
+Regardless of the type of project, a good report reads as a reflective account of the work as a whole, not just a walkthrough of what was built or done. Keep the following in mind:
+
+\begin{itemize}
+    \item Separate technical \textbf{description} (what was done) from technical \textbf{analysis} (why, and what it means).
+    \item Justify non-trivial decisions against the alternatives you considered, rather than just listing what you picked.
+    \item Include a dedicated discussion of your results and outcomes: what worked, what did not, and why.
+    \item Close with an honest reflection that revisits your goals individually, not a single rounding-up sentence.
+    \item Use references where relevant (methods, design patterns, related work); citation discipline still matters outside a thesis.
+    \item Keep the body lean; move supporting material (test logs, specifications, mockups, extra data) to the appendices.
+\end{itemize}
+
+\section{Thesis Structure}
 \label{sec:c1:thesesguidelines}
 
 You should shop around and look at theses or ask your supervisor for suggestions.
@@ -28,13 +42,53 @@ That said, here is an example of how you can structure your thesis.
     \item Conclusions
 \end{enumerate}
 
-A \textbf{research internship} comprises a work similar to a thesis but at a smaller scale. Thus, the structure is usually very similar. Key differences are commonly related to the amount of workload. Thus, consider the same structure suggested for thesis.
+\section{Internship Structure}
+\label{sec:c1:internshipguidelines}
 
-\section{Short Programming Project Structure}
-\label{sec:c1:sppguidelines}
+Whether you take the Bachelor Internship (5 or 15 EC) or the Master's In-company or Research Internship (15 EC), you will do it either \textbf{with a research group} or \textbf{in-company}. That aspect is what should drive the report's structure; the degree and number of credits affect the expected depth and scope.
 
-{\color{red} To be written...}.
+\subsection{Research-hosted Internship}
+\label{sec:c1:researchinternship}
 
+A research-hosted internship comprises work similar to a thesis but at a smaller scale. Thus, follow the thesis structure in \autoref{sec:c1:thesesguidelines}, scaled to the internship's smaller scope.
+
+If the internship is of a more practical nature, e.g., implementing a tool for a piece of research, a structure similar to that of a company-hosted internship (see below) might be more meaningful. In such a case, consult your supervisor.
+
+\subsection{Company-hosted Internship}
+\label{sec:c1:companyinternship}
+
+A company-hosted internship is not a research project, so forcing it into the thesis structure above does not work well. Consider instead:
+
+\begin{enumerate}
+    \item Introduction
+    \begin{enumerate}
+        \item Host Organization
+        \item Your Role and Responsibilities
+        \item Learning Goals
+        \item Skills Developed (technical, professional, personal)
+    \end{enumerate}
+    \item Methodology / Approach
+    \begin{enumerate}
+        \item Planned vs. Actual Timeline
+        \item Team Process (meetings, delivery strategy) and its Rationale
+        \item Your Role within the Team
+        \item Technical Decisions, Justified against Alternatives
+    \end{enumerate}
+    \item Results\\
+    It varies per project; some examples include:
+    \begin{enumerate}
+        \item Architecture and Design Decisions
+        \item Technical Work Carried Out
+        \item Testing Evidence (e.g. number of tests, coverage, pass rate)
+        \item Results and Outcomes
+    \end{enumerate}
+    \item Conclusion
+    \begin{enumerate}
+        \item Learning Goals Revisited, with Evidence
+        \item Unexpected Lessons
+        \item Future Work
+    \end{enumerate}
+\end{enumerate}
 
 \section{\LaTeX{} Formatting}
 \label{sec:c1:latex}
